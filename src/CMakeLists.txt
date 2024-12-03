@@ -30,6 +30,7 @@ set(SOURCE_FILES
     handlebars_cache.c
     handlebars_cache_lmdb.c
     handlebars_cache_mmap.c
+    mman.c
     handlebars_cache_simple.c
     handlebars_closure.c
     handlebars_compiler.c

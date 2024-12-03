@@ -184,6 +184,7 @@ am__libhandlebars_la_SOURCES_DIST = handlebars.tab.h handlebars.tab.c \
 	handlebars_ast_list.c handlebars_ast_printer.h \
 	handlebars_ast_printer.c handlebars_cache.h handlebars_cache.c \
 	handlebars_cache_lmdb.c handlebars_cache_mmap.c \
+	mman.c \
 	handlebars_cache_simple.c handlebars_closure.c \
 	handlebars_closure.h handlebars_compiler.h \
 	handlebars_compiler.c handlebars_delimiters.c \
@@ -205,7 +206,7 @@ am__libhandlebars_la_SOURCES_DIST = handlebars.tab.h handlebars.tab.c \
 	handlebars_vm.h handlebars_vm.c handlebars_whitespace.h \
 	handlebars_whitespace.c handlebars_yaml.c handlebars_memory.c
 @LMDB_TRUE@am__objects_1 = handlebars_cache_lmdb.lo
-@PTHREAD_TRUE@am__objects_2 = handlebars_cache_mmap.lo
+@PTHREAD_TRUE@am__objects_2 = handlebars_cache_mmap.lo mman.lo
 @JSON_TRUE@am__objects_3 = handlebars_json.lo
 @YAML_TRUE@am__objects_4 = handlebars_yaml.lo
 @HANDLEBARS_MEMORY_TRUE@am__objects_5 = handlebars_memory.lo
@@ -257,6 +258,7 @@ am__depfiles_remade = ./$(DEPDIR)/handlebars.Plo \
 	./$(DEPDIR)/handlebars_cache.Plo \
 	./$(DEPDIR)/handlebars_cache_lmdb.Plo \
 	./$(DEPDIR)/handlebars_cache_mmap.Plo \
+	./$(DEPDIR)/mman.Plo \
 	./$(DEPDIR)/handlebars_cache_simple.Plo \
 	./$(DEPDIR)/handlebars_closure.Plo \
 	./$(DEPDIR)/handlebars_compiler.Plo \
@@ -533,7 +535,7 @@ GENSOURCE2 = $(am__append_3) $(am__append_4)
 @LMDB_FALSE@LMDBSOURCES = 
 @LMDB_TRUE@LMDBSOURCES = handlebars_cache_lmdb.c
 @PTHREAD_FALSE@PTHREADSOURCES = 
-@PTHREAD_TRUE@PTHREADSOURCES = handlebars_cache_mmap.c
+@PTHREAD_TRUE@PTHREADSOURCES = handlebars_cache_mmap.c mman.c
 @JSON_FALSE@JSONSOURCES = 
 @JSON_TRUE@JSONSOURCES = $(JSON_HEADERS) handlebars_json.c
 @YAML_FALSE@YAMLSOURCES = 
@@ -722,6 +724,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handlebars_ast_printer.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handlebars_cache.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handlebars_cache_lmdb.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mman.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handlebars_cache_mmap.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handlebars_cache_simple.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handlebars_closure.Plo@am__quote@ # am--include-marker
@@ -974,6 +977,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/handlebars_cache.Plo
 	-rm -f ./$(DEPDIR)/handlebars_cache_lmdb.Plo
 	-rm -f ./$(DEPDIR)/handlebars_cache_mmap.Plo
+	-rm -f ./$(DEPDIR)/mman.Plo
 	-rm -f ./$(DEPDIR)/handlebars_cache_simple.Plo
 	-rm -f ./$(DEPDIR)/handlebars_closure.Plo
 	-rm -f ./$(DEPDIR)/handlebars_compiler.Plo
@@ -1055,6 +1059,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/handlebars_cache.Plo
 	-rm -f ./$(DEPDIR)/handlebars_cache_lmdb.Plo
 	-rm -f ./$(DEPDIR)/handlebars_cache_mmap.Plo
+	-rm -f ./$(DEPDIR)/mman.Plo
 	-rm -f ./$(DEPDIR)/handlebars_cache_simple.Plo
 	-rm -f ./$(DEPDIR)/handlebars_closure.Plo
 	-rm -f ./$(DEPDIR)/handlebars_compiler.Plo

@@ -41,7 +41,7 @@ LMDBSOURCES =
 endif
 
 if PTHREAD
-PTHREADSOURCES = handlebars_cache_mmap.c
+PTHREADSOURCES = handlebars_cache_mmap.c mman.c
 else
 PTHREADSOURCES =
 endif

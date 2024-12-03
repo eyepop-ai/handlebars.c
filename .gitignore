@@ -77,3 +77,5 @@ stamp-h2
 
 # valgrind?
 vgcore.*
+
+.install

@@ -26,7 +26,8 @@
 #include <pthread.h>
 #include <string.h>
 #include <sys/file.h>
-#include <sys/mman.h>
+// #include <sys/mman.h>
+#include "mman.h"
 #include <sys/stat.h>
 #include <time.h>
 #include <fcntl.h>
@@ -154,7 +155,7 @@ static inline void protect(struct handlebars_cache * cache, bool on)
 {
     struct handlebars_cache_mmap * intern = (struct handlebars_cache_mmap *) cache->internal;
     int prot = on ? PROT_READ : PROT_READ | PROT_WRITE;
-    int rc = mprotect(intern->table, intern->table_size + intern->data_size, prot);
+    int rc = _mprotect(intern->table, intern->table_size + intern->data_size, prot);
     if( rc != 0 ) {
         handlebars_throw(HBSCTX(cache), HANDLEBARS_ERROR, "mprotect error: %s (%d)", strerror(rc), rc);
     }
@@ -441,7 +442,8 @@ struct handlebars_cache * handlebars_cache_mmap_ctor(
 #elif defined(PAGE_SIZE)
     page_size = PAGE_SIZE;
 #else
-#error "Unable to query page size"
+// #error "Unable to query page size"
+    page_size = 4096;
 #endif
 
     // Calculate sizes
