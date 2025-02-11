@@ -24,7 +24,11 @@
 #include <pthread.h>
 #include <string.h>
 #include <sys/file.h>
+#if defined(_WIN32) || defined(__CYGWIN__)
+#include "windows/mman-win32/mman.h"
+#else
 #include <sys/mman.h>
+#endif
 #include <sys/stat.h>
 #include <time.h>
 #include <fcntl.h>
@@ -438,6 +442,9 @@ struct handlebars_cache * handlebars_cache_mmap_ctor(
     page_size = (size_t) sysconf(_SC_PAGESIZE);
 #elif defined(PAGE_SIZE)
     page_size = PAGE_SIZE;
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // https://devblogs.microsoft.com/oldnewthing/20210510-00/?p=105200
+    page_size = 4096;
 #else
 #error "Unable to query page size"
 #endif

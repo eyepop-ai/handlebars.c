@@ -81,3 +81,5 @@ vgcore.*
 
 # nix
 .direnv
+
+.install
