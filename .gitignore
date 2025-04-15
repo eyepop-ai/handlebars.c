@@ -85,9 +85,6 @@ vgcore.*
 .install
 
 # Build system generated files (QWV-94)
-Makefile.in
 src/handlebars.tab.c
 src/handlebars.tab.h
 .install/
-aclocal.m4
-config.h.in
