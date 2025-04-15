@@ -91,4 +91,3 @@ src/handlebars.tab.h
 .install/
 aclocal.m4
 config.h.in
-configure
