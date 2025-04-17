@@ -83,3 +83,8 @@ vgcore.*
 .direnv
 
 .install
+
+# Build system generated files (QWV-94)
+src/handlebars.tab.c
+src/handlebars.tab.h
+.install/
