@@ -88,3 +88,9 @@ vgcore.*
 src/handlebars.tab.c
 src/handlebars.tab.h
 .install/
+
+.devbox
+.env
+.DS_Store
+tmp/
+___*

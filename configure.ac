@@ -431,6 +431,18 @@ AS_IF([test "x$enable_yaml" == "xyes"], [
 ])
 AM_CONDITIONAL([YAML], [test "x$enable_yaml" == "xyes"])
 
+# Platform detection
+AC_CANONICAL_HOST
+case $host_os in
+  *mingw* | *cygwin* | *msys* | *pw32* | *cegcc*)
+    AC_DEFINE([IS_WIN], [1], [Define if building for Windows])
+    ;;
+  *)
+    AC_DEFINE([IS_WIN], [0], [Define if building for Windows])
+    ;;
+esac
+AM_CONDITIONAL([IS_WIN], [test "$host_os" = "*mingw*" -o "$host_os" = "*cygwin*" -o "$host_os" = "*msys*" -o "$host_os" = "*pw32*" -o "$host_os" = "*cegcc*"])
+
 # Define Makefiles.
 AC_CONFIG_FILES([
   handlebars.pc
