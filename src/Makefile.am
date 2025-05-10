@@ -56,7 +56,7 @@ endif
 
 if PTHREAD
 PTHREADSOURCES = handlebars_cache_mmap.c
-ifeq ($(shell uname -o), Msys)
+if IS_WIN
 PTHREADSOURCES += mman.c
 endif
 else
