@@ -32,10 +32,3 @@ jobs:
           file: .github/lib.Dockerfile
           push: true
           tags: "ghcr.io/eyepop-ai/handlebars.c:latest"
-
-      - 
-        name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: handlebars.c
-          path: dist/handlebars
